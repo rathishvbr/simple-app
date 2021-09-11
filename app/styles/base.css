@@ -1,0 +1,17 @@
+body {
+  font-family: -webkit-pictograph;
+  background: #f5f5f5;
+}
+
+.container {
+  display: flex;
+  background: white;
+}
+
+.captialize {
+  text-transform: capitalize;
+}
+
+.pointer {
+  cursor: pointer;
+}

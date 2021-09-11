@@ -1,0 +1,69 @@
+<div class='container'>
+  <div class='w-100 table-wrap'>
+    {{#if @selection}}
+      <div class='container f-g-10 table-header'>
+        <div>
+          <Input
+            data-test-global-checkbox
+            id='select-all'
+            @type='checkbox'
+            @checked={{this.globalSelection}}
+            {{on 'change' this.selectAll}}
+            {{did-insert this.setGlobalSelection}}
+          />
+          <label for='select-all' data-test-global-checkbox-label>
+            {{#if @selectedModel.length}}
+              Selected {{@selectedModel.length}}
+            {{else}}
+              None selected
+            {{/if}}
+          </label>
+        </div>
+        <div>
+          {{yield}}
+        </div>
+      </div>
+    {{/if}}
+    {{! template-lint-disable table-groups }}
+    <table id='base-table'>
+      <tr>
+        {{#if @selection}}
+          <th></th>
+        {{/if}}
+        {{#each @columns as |col|}}
+          <th>
+            {{col.property}}
+          </th>
+        {{/each}}
+      </tr>
+      {{#each @model as |file index|}}
+        <tr
+          class={{if (get this (concat 'file-' index)) 'selected'}}
+          data-test-table-row={{index}}
+        >
+          {{#if @selection}}
+            <td>
+              <Input
+                data-test-checkbox-for={{index}}
+                id="file-{{index}}"
+                @type='checkbox'
+                @checked={{mut (get this (concat 'file-' index))}}
+                {{on 'change' (fn this.selectFile file (concat 'file-' index))}}
+              />
+            </td>
+          {{/if}}
+          {{#each @columns as |col|}}
+            <td class={{if col.captialize 'captialize'}}>
+              {{#if
+                (and col.highlight (eq (get file col.property) col.highlight))
+              }}
+                <div class='circle-success'></div>
+              {{/if}}
+              {{get file col.property}}
+            </td>
+          {{/each}}
+        </tr>
+      {{/each}}
+    </table>
+  </div>
+</div>
