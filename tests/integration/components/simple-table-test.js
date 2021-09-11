@@ -80,6 +80,6 @@ module('Integration | Component | simple-table', function (hooks) {
     await click('[data-test-checkbox-for="0"]');
     assert
       .dom('[data-test-table-row="0"]')
-      .hasStyle({ backgroundColor: 'rgb(224, 224, 224)' });
+      .hasStyle({ backgroundColor: 'rgb(238, 238, 238)' });
   });
 });
