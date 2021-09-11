@@ -42,6 +42,15 @@
         @selection={{false}}
         @columns={{this.alertColumns}}
       />
+      <div class='p-t-20'>
+        <button
+          type='button'
+          class='btn btn-primary p-t-20'
+          {{on 'click' this.downloadAvailableFile}}
+        >
+          Download
+        </button>
+      </div>
     {{else}}
       No available files to download
     {{/if}}

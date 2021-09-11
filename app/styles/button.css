@@ -1,0 +1,12 @@
+.btn {
+  border: none;
+  color: white;
+  padding: 10px 23px;
+  text-align: center;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.btn.btn-primary {
+  background-color: #03a9f4;
+}
