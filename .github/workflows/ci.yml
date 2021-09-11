@@ -1,10 +1,10 @@
-name: CI
+name: Test case & Linting
 
 on: [push, pull_request]
 
 jobs:
     test:
-        name: Run tests
+        name: Run ember tests
         runs-on: ${{ matrix.os }}
         strategy:
             matrix:
