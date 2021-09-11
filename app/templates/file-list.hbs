@@ -5,4 +5,20 @@
   @selectedModel={{this.selectedFile}}
   @selection={{true}}
   @columns={{this.columns}}
-/>
+>
+  {{#if this.selectedFile}}
+    <div
+      role='button'
+      class='pointer'
+      {{on 'click' (fn (mut this.isModalOpen) true)}}
+    >
+      Download Selected
+    </div>
+  {{/if}}
+</SimpleTable>
+
+{{#if this.isModalOpen}}
+  modal opened
+{{else}}
+  modal closed
+{{/if}}
