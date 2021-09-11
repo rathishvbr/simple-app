@@ -19,4 +19,16 @@ export default class RiskListController extends Controller {
     { property: 'status', highlight: 'available', captialize: true },
   ];
 
+  alertColumns = [
+    {
+      property: 'device',
+    },
+    {
+      property: 'path',
+    },
+  ];
+
+  get downloadableFiles() {
+    return this.selectedFile.filter((file) => file.status === 'available');
+  }
 }

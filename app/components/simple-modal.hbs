@@ -1,0 +1,19 @@
+{{! template-lint-disable no-inline-styles }}
+{{! template-lint-disable style-concatenation }}
+<div
+  id='base-modal'
+  class='modal'
+  style="display: {{if @openModal 'block' 'none'}};"
+>
+  <div class='modal-content'>
+    <span
+      class='close'
+      data-test-modal-close
+      role='button'
+      {{on 'click' this.closeModal}}
+    >
+      &times;
+    </span>
+    {{yield}}
+  </div>
+</div>

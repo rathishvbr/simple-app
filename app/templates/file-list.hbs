@@ -17,8 +17,33 @@
   {{/if}}
 </SimpleTable>
 
-{{#if this.isModalOpen}}
-  modal opened
-{{else}}
-  modal closed
-{{/if}}
+<SimpleModal
+  @openModal={{this.isModalOpen}}
+  @onClose={{fn (mut this.isModalOpen) false}}
+>
+  <div>
+    <h2>
+      Selected files
+    </h2>
+    <SimpleTable
+      @model={{this.selectedFile}}
+      @selection={{false}}
+      @columns={{this.alertColumns}}
+    />
+  </div>
+
+  <div>
+    <h2>
+      Available files to download
+    </h2>
+    {{#if this.downloadableFiles}}
+      <SimpleTable
+        @model={{this.downloadableFiles}}
+        @selection={{false}}
+        @columns={{this.alertColumns}}
+      />
+    {{else}}
+      No available files to download
+    {{/if}}
+  </div>
+</SimpleModal>
