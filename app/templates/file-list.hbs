@@ -9,9 +9,16 @@
   {{#if this.selectedFile}}
     <div
       role='button'
-      class='pointer'
+      class='pointer download-image'
       {{on 'click' (fn (mut this.isModalOpen) true)}}
     >
+      <span class='download-icon'></span>
+      <img
+        src='assets/images/download.png'
+        alt='download'
+        width='25'
+        height='25'
+      />
       Download Selected
     </div>
   {{/if}}
